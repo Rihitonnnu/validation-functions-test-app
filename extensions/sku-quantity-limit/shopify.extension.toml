@@ -1,0 +1,18 @@
+api_version = "2026-10"
+
+[[extensions]]
+name = "t:name"
+handle = "sku-quantity-limit"
+type = "function"
+uid = "11e900f0-d5fb-5abc-d3db-ce867d013b0ff3e3836c"
+description = "t:description"
+
+  [[extensions.targeting]]
+  target = "cart.validations.generate.run"
+  input_query = "src/cart_validations_generate_run.graphql"
+  export = "cart_validations_generate_run"
+
+  [extensions.build]
+  command = "cargo build --target=wasm32-unknown-unknown --release"
+  path = "target/wasm32-unknown-unknown/release/sku-quantity-limit.wasm"
+  watch = ["src/**/*.rs"]

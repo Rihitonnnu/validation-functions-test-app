@@ -1,0 +1,56 @@
+{
+  "payload": {
+    "export": "cart_validations_generate_run",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "quantity": 2,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/1",
+              "sku": "SKU-SHARED",
+              "title": "27cm",
+              "product": {
+                "title": "限定スニーカー"
+              },
+              "metafield": {
+                "value": "5"
+              }
+            }
+          },
+          {
+            "quantity": 2,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/2",
+              "sku": "SKU-SHARED",
+              "title": "28cm",
+              "product": {
+                "title": "限定スニーカー"
+              },
+              "metafield": {
+                "value": "3"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": [
+              {
+                "message": "「限定スニーカー 27cm」は3点までご購入いただけます(現在4点)。数量を減らしてください。",
+                "target": "$.cart"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

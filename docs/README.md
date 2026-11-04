@@ -5,10 +5,12 @@
 | ドキュメント | 内容 |
 | --- | --- |
 | [cart-quantity-limit.md](./cart-quantity-limit.md) | カート全体の購入数量上限(合計 31 点以上でブロック)をチェックする Validation Function の解説 |
+| [sku-quantity-limit.md](./sku-quantity-limit.md) | SKU ごとの購入数量上限(バリアントのメタフィールド `custom.max_quantity`)をチェックする Validation Function の解説 |
+| [sku-quantity-limit-decisions.md](./sku-quantity-limit-decisions.md) | SKU ごとの購入制限で検討した保存方式・判定ルールのまとめ |
 
 ## プロジェクト概要
 
-Shopify の [Cart and Checkout Validation Function](https://shopify.dev/docs/api/functions/latest/cart-and-checkout-validation) を試すためのデモアプリです。Shopify の「Extension only」アプリテンプレート(Preact + Vite)から作成されており、**このプロジェクトで実装した中心は `cart-quantity-limit` Function** です。
+Shopify の [Cart and Checkout Validation Function](https://shopify.dev/docs/api/functions/latest/cart-and-checkout-validation) を試すためのデモアプリです。Shopify の「Extension only」アプリテンプレート(Preact + Vite)から作成されており、**このプロジェクトで実装した中心は `cart-quantity-limit` と `sku-quantity-limit` の 2 つの Function** です。
 
 ### ディレクトリ構成
 
@@ -18,6 +20,7 @@ Shopify の [Cart and Checkout Validation Function](https://shopify.dev/docs/api
 ├── package.json                # npm workspaces(extensions/*)
 ├── extensions/
 │   ├── cart-quantity-limit/    # ★ 実装: カート全体の数量上限 Validation Function (Rust)
+│   ├── sku-quantity-limit/     # ★ 実装: SKU ごとの数量上限 Validation Function (Rust)
 │   ├── app-home/               # テンプレート由来: 管理画面のアプリホーム UI (Preact)
 │   └── app-tools/              # テンプレート由来: Sidekick 用の FAQ 読み取りツール
 ├── shared/                     # テンプレート由来: FAQ メタオブジェクト操作の共通コード
@@ -29,6 +32,7 @@ Shopify の [Cart and Checkout Validation Function](https://shopify.dev/docs/api
 | 拡張機能 | 種別 | 区分 | 概要 |
 | --- | --- | --- | --- |
 | `cart-quantity-limit` | `function` | **実装** | カート全体の合計数量が 31 点以上になるとチェックアウトをブロック |
+| `sku-quantity-limit` | `function` | **実装** | SKU ごとの合計数量がバリアントの購入上限数(`custom.max_quantity`)を超えるとチェックアウトをブロック |
 | `app-home` | `ui_extension` (`admin.app.home.render`) | テンプレート | FAQ(メタオブジェクト)の管理画面サンプル |
 | `app-tools` | `ui_extension` (`admin.app.tools.data`) | テンプレート | アプリ内の FAQ を Sidekick から読めるようにするツール |
 
@@ -50,8 +54,8 @@ npm run dev      # 開発サーバー起動
 Function のテスト:
 
 ```bash
-cd extensions/cart-quantity-limit
-npx vitest run
+(cd extensions/cart-quantity-limit && npx vitest run)
+(cd extensions/sku-quantity-limit && npx vitest run)
 ```
 
 その他のコマンド(`npm run build` / `npm run deploy` など)は [cart-quantity-limit.md](./cart-quantity-limit.md#5-ビルド開発デプロイ) を参照してください。
