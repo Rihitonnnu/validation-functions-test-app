@@ -6,11 +6,7 @@
       "cart": {
         "lines": [
           {
-            "quantity": 31,
-            "merchandise": {
-              "__typename": "ProductVariant",
-              "sku": "SKU-A"
-            }
+            "quantity": 31
           }
         ]
       }
@@ -21,7 +17,7 @@
           "validationAdd": {
             "errors": [
               {
-                "message": "SKU「SKU-A」は合計30点以上ご購入いただけません。カート内の数量を減らしてください。",
+                "message": "カート内の商品は合計30点までご購入いただけます。数量を減らしてください。",
                 "target": "$.cart"
               }
             ]

@@ -4,7 +4,7 @@
 
 | ドキュメント | 内容 |
 | --- | --- |
-| [cart-quantity-limit.md](./cart-quantity-limit.md) | SKU 単位の購入数量上限(同一 SKU の合計が 30 点以上でブロック)をチェックする Validation Function の解説 |
+| [cart-quantity-limit.md](./cart-quantity-limit.md) | カート全体の購入数量上限(合計 31 点以上でブロック)をチェックする Validation Function の解説 |
 
 ## プロジェクト概要
 
@@ -17,7 +17,7 @@ Shopify の [Cart and Checkout Validation Function](https://shopify.dev/docs/api
 ├── shopify.app.toml            # アプリ設定(スコープ、メタオブジェクト定義など)
 ├── package.json                # npm workspaces(extensions/*)
 ├── extensions/
-│   ├── cart-quantity-limit/    # ★ 実装: SKU 単位の数量上限 Validation Function (Rust)
+│   ├── cart-quantity-limit/    # ★ 実装: カート全体の数量上限 Validation Function (Rust)
 │   ├── app-home/               # テンプレート由来: 管理画面のアプリホーム UI (Preact)
 │   └── app-tools/              # テンプレート由来: Sidekick 用の FAQ 読み取りツール
 ├── shared/                     # テンプレート由来: FAQ メタオブジェクト操作の共通コード
@@ -28,7 +28,7 @@ Shopify の [Cart and Checkout Validation Function](https://shopify.dev/docs/api
 
 | 拡張機能 | 種別 | 区分 | 概要 |
 | --- | --- | --- | --- |
-| `cart-quantity-limit` | `function` | **実装** | 同一 SKU の合計数量が 30 点以上になるとチェックアウトをブロック |
+| `cart-quantity-limit` | `function` | **実装** | カート全体の合計数量が 31 点以上になるとチェックアウトをブロック |
 | `app-home` | `ui_extension` (`admin.app.home.render`) | テンプレート | FAQ(メタオブジェクト)の管理画面サンプル |
 | `app-tools` | `ui_extension` (`admin.app.tools.data`) | テンプレート | アプリ内の FAQ を Sidekick から読めるようにするツール |
 

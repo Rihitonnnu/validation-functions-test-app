@@ -6,18 +6,7 @@
       "cart": {
         "lines": [
           {
-            "quantity": 29,
-            "merchandise": {
-              "__typename": "ProductVariant",
-              "sku": "SKU-A"
-            }
-          },
-          {
-            "quantity": 29,
-            "merchandise": {
-              "__typename": "ProductVariant",
-              "sku": "SKU-B"
-            }
+            "quantity": 30
           }
         ]
       }

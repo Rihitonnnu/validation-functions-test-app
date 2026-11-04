@@ -6,18 +6,10 @@
       "cart": {
         "lines": [
           {
-            "quantity": 20,
-            "merchandise": {
-              "__typename": "ProductVariant",
-              "sku": "SKU-A"
-            }
+            "quantity": 12
           },
           {
-            "quantity": 9,
-            "merchandise": {
-              "__typename": "ProductVariant",
-              "sku": "SKU-A"
-            }
+            "quantity": 20
           }
         ]
       }
@@ -26,7 +18,12 @@
       "operations": [
         {
           "validationAdd": {
-            "errors": []
+            "errors": [
+              {
+                "message": "カート内の商品は合計30点までご購入いただけます。数量を減らしてください。",
+                "target": "$.cart"
+              }
+            ]
           }
         }
       ]

@@ -6,11 +6,10 @@
       "cart": {
         "lines": [
           {
-            "quantity": 40,
-            "merchandise": {
-              "__typename": "ProductVariant",
-              "sku": null
-            }
+            "quantity": 12
+          },
+          {
+            "quantity": 18
           }
         ]
       }
