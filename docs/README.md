@@ -4,7 +4,7 @@
 
 | ドキュメント | 内容 |
 | --- | --- |
-| [cart-quantity-limit.md](./cart-quantity-limit.md) | SKU 単位の購入数量上限(同一 SKU につき 30 点)をチェックする Validation Function の解説 |
+| [cart-quantity-limit.md](./cart-quantity-limit.md) | SKU 単位の購入数量上限(同一 SKU の合計が 30 点以上でブロック)をチェックする Validation Function の解説 |
 
 ## プロジェクト概要
 
@@ -28,7 +28,7 @@ Shopify の [Cart and Checkout Validation Function](https://shopify.dev/docs/api
 
 | 拡張機能 | 種別 | 区分 | 概要 |
 | --- | --- | --- | --- |
-| `cart-quantity-limit` | `function` | **実装** | 同一 SKU の合計数量が 30 点を超えるとチェックアウトをブロック |
+| `cart-quantity-limit` | `function` | **実装** | 同一 SKU の合計数量が 30 点以上になるとチェックアウトをブロック |
 | `app-home` | `ui_extension` (`admin.app.home.render`) | テンプレート | FAQ(メタオブジェクト)の管理画面サンプル |
 | `app-tools` | `ui_extension` (`admin.app.tools.data`) | テンプレート | アプリ内の FAQ を Sidekick から読めるようにするツール |
 

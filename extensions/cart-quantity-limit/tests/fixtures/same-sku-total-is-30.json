@@ -26,7 +26,12 @@
       "operations": [
         {
           "validationAdd": {
-            "errors": []
+            "errors": [
+              {
+                "message": "SKU「SKU-A」は合計30点以上ご購入いただけません。カート内の数量を減らしてください。",
+                "target": "$.cart"
+              }
+            ]
           }
         }
       ]

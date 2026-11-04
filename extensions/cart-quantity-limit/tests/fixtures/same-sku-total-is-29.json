@@ -13,7 +13,7 @@
             }
           },
           {
-            "quantity": 11,
+            "quantity": 9,
             "merchandise": {
               "__typename": "ProductVariant",
               "sku": "SKU-A"
@@ -26,12 +26,7 @@
       "operations": [
         {
           "validationAdd": {
-            "errors": [
-              {
-                "message": "SKU「SKU-A」は合計30点までご購入いただけます。カート内の数量を減らしてください。",
-                "target": "$.cart"
-              }
-            ]
+            "errors": []
           }
         }
       ]

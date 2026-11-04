@@ -4,8 +4,8 @@ use super::schema;
 use shopify_function::prelude::*;
 use shopify_function::Result;
 
-/// 同一 SKU あたりの合計数量の上限。
-const MAX_QUANTITY_PER_SKU: i32 = 30;
+/// 同一 SKU の合計数量がこの値以上になるとブロックする(29 点まで許可)。
+const BLOCK_QUANTITY_PER_SKU: i32 = 30;
 
 #[shopify_function]
 fn cart_validations_generate_run(
@@ -26,11 +26,11 @@ fn cart_validations_generate_run(
 
     let errors = quantity_by_sku
         .into_iter()
-        .filter(|(_, quantity)| *quantity > MAX_QUANTITY_PER_SKU)
+        .filter(|(_, quantity)| *quantity >= BLOCK_QUANTITY_PER_SKU)
         .map(|(sku, _)| schema::ValidationError {
             message: format!(
-                "SKU「{}」は合計{}点までご購入いただけます。カート内の数量を減らしてください。",
-                sku, MAX_QUANTITY_PER_SKU
+                "SKU「{}」は合計{}点以上ご購入いただけません。カート内の数量を減らしてください。",
+                sku, BLOCK_QUANTITY_PER_SKU
             ),
             target: "$.cart".to_owned(),
         })
