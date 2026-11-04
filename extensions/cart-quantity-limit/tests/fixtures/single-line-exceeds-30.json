@@ -1,0 +1,33 @@
+{
+  "payload": {
+    "export": "cart_validations_generate_run",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "quantity": 31,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "sku": "SKU-A"
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": [
+              {
+                "message": "SKU「SKU-A」は合計30点までご購入いただけます。カート内の数量を減らしてください。",
+                "target": "$.cart"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

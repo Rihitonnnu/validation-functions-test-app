@@ -1,0 +1,35 @@
+{
+  "payload": {
+    "export": "cart_validations_generate_run",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "quantity": 30,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "sku": "SKU-A"
+            }
+          },
+          {
+            "quantity": 30,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "sku": "SKU-B"
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": []
+          }
+        }
+      ]
+    }
+  }
+}
