@@ -1,0 +1,21 @@
+query Input {
+  cart {
+    lines {
+      quantity
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+          sku
+          title
+          product {
+            title
+          }
+          metafield(namespace: "custom", key: "max_quantity") {
+            value
+          }
+        }
+      }
+    }
+  }
+}

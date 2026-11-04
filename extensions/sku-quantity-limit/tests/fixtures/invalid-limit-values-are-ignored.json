@@ -1,0 +1,51 @@
+{
+  "payload": {
+    "export": "cart_validations_generate_run",
+    "target": "cart.validations.generate.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "quantity": 10,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/1",
+              "sku": "SKU-A",
+              "title": "27cm",
+              "product": {
+                "title": "限定スニーカー"
+              },
+              "metafield": {
+                "value": "abc"
+              }
+            }
+          },
+          {
+            "quantity": 10,
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "id": "gid://shopify/ProductVariant/2",
+              "sku": "SKU-B",
+              "title": "28cm",
+              "product": {
+                "title": "限定スニーカー"
+              },
+              "metafield": {
+                "value": "0"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "validationAdd": {
+            "errors": []
+          }
+        }
+      ]
+    }
+  }
+}
