@@ -1,0 +1,32 @@
+{
+  "payload": {
+    "export": "cart_delivery_options_transform_run",
+    "target": "cart.delivery-options.transform.run",
+    "input": {
+      "cart": {
+        "lines": [],
+        "deliveryGroups": [
+          {
+            "deliveryOptions": [
+              {
+                "handle": "h-0",
+                "title": "クール便"
+              },
+              {
+                "handle": "h-1",
+                "title": "通常便"
+              },
+              {
+                "handle": "h-2",
+                "title": "通常便＋クール便"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": []
+    }
+  }
+}
