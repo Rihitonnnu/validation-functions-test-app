@@ -1,0 +1,24 @@
+api_version = "2026-10"
+
+[[extensions]]
+name = "t:name"
+handle = "delivery-cool-split"
+type = "function"
+uid = "60fae5c7-4945-e0d3-8e91-7992d83a2528fe9b92b0"
+description = "t:description"
+
+  [[extensions.targeting]]
+  target = "cart.delivery-options.transform.run"
+  input_query = "src/cart_delivery_options_transform_run.graphql"
+  export = "cart_delivery_options_transform_run"
+
+    # 入力クエリの変数($collectionIds)の値を、有効化した deliveryCustomization の
+    # このメタフィールド(JSON)から読む。例: {"collectionIds": ["gid://shopify/Collection/1"]}
+    [extensions.targeting.input_variables]
+    namespace = "$app:delivery-cool-split"
+    key = "variables"
+
+  [extensions.build]
+  command = "cargo build --target=wasm32-unknown-unknown --release"
+  path = "target/wasm32-unknown-unknown/release/delivery-cool-split.wasm"
+  watch = [ "src/**/*.rs" ]

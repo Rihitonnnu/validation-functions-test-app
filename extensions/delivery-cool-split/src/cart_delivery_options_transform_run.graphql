@@ -1,0 +1,20 @@
+query Input($collectionIds: [ID!] = []) {
+  cart {
+    lines {
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          product {
+            inCoolCollection: inAnyCollection(ids: $collectionIds)
+          }
+        }
+      }
+    }
+    deliveryGroups {
+      deliveryOptions {
+        handle
+        title
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "payload": {
+    "export": "cart_delivery_options_transform_run",
+    "target": "cart.delivery-options.transform.run",
+    "input": {
+      "cart": {
+        "lines": [
+          {
+            "merchandise": {
+              "__typename": "ProductVariant",
+              "product": {
+                "inCoolCollection": true
+              }
+            }
+          }
+        ],
+        "deliveryGroups": [
+          {
+            "deliveryOptions": [
+              {
+                "handle": "a-0",
+                "title": "クール便"
+              },
+              {
+                "handle": "a-1",
+                "title": "通常便"
+              },
+              {
+                "handle": "a-2",
+                "title": "通常便＋クール便"
+              }
+            ]
+          },
+          {
+            "deliveryOptions": [
+              {
+                "handle": "b-0",
+                "title": "クール便"
+              },
+              {
+                "handle": "b-1",
+                "title": "通常便"
+              },
+              {
+                "handle": "b-2",
+                "title": "通常便＋クール便"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "output": {
+      "operations": [
+        {
+          "deliveryOptionHide": {
+            "deliveryOptionHandle": "a-1"
+          }
+        },
+        {
+          "deliveryOptionHide": {
+            "deliveryOptionHandle": "a-2"
+          }
+        },
+        {
+          "deliveryOptionHide": {
+            "deliveryOptionHandle": "b-1"
+          }
+        },
+        {
+          "deliveryOptionHide": {
+            "deliveryOptionHandle": "b-2"
+          }
+        }
+      ]
+    }
+  }
+}
