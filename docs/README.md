@@ -7,6 +7,8 @@
 | [cart-quantity-limit.md](./cart-quantity-limit.md) | カート全体の購入数量上限(合計 31 点以上でブロック)をチェックする Validation Function の解説 |
 | [sku-quantity-limit.md](./sku-quantity-limit.md) | SKU ごとの購入数量上限(バリアントのメタフィールド `custom.max_quantity`)をチェックする Validation Function の解説 |
 | [sku-quantity-limit-decisions.md](./sku-quantity-limit-decisions.md) | SKU ごとの購入制限で検討した保存方式・判定ルールのまとめ |
+| [delivery-cool-split.md](./delivery-cool-split.md) | クール品／通常品によって配送オプション(クール便・通常便・通常便＋クール便)を出し分ける Delivery Customization Function の解説 |
+| [delivery-cool-split-sequence.md](./delivery-cool-split-sequence.md) | delivery-cool-split の準備〜実行時までの処理の流れ(シーケンス図)と Function 内の判定フロー |
 
 ## プロジェクト概要
 
